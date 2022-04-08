@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}Registration Page {% endblock title %}
+{% block style %}
+.star {
+  color: red;
+}
+
+{% endblock style %}
+{% block body %}
+<div class="container-fluid" style="background-image: url(https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);">
+  <div class="row">
+    <div class="col-md-6" style="margin: 0 auto;">
+      <div class="form_container" style="border: 2px solid white;padding: 40px 50px;align-items: center; margin:5rem auto;">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <h1 style="text-align: center;color: white; font-size: 28px;  ">Registration Page </h1>
+          <div class="form-group" style="margin: 2rem auto 1rem auto;">
+            <label for="name" class="form-label" style="color: white;"> Name</label><sup class="star">*</sup>
+            <input type="text" class="form-control" id="text"
+              style="background: none; color: white;border:none; border-bottom: 2px solid;" name="Name"
+              placeholder="Full Name" required>
+          </div>
+          <div class="form-group" style="margin: 2rem auto 1rem auto;">
+            <label for="Address" class="form-label" style="color: white;"> Address</label><sup class="star">*</sup>
+            <input type="text" class="form-control" id="text"
+              style="background: none; color: white;border:none; border-bottom: 2px solid;" name="Address"
+              placeholder="Address" required>
+          </div>
+          <div class="form-group">
+            <label for="phone" class="form-label" style="color: white;"> Email-Id</label><sup class="star">*</sup>
+            <input type="text" id="phone" name="Email" class="form-control" maxlength="50" placeholder="Email-Id"
+              style="background:none;color: white;border: none;border-bottom: 2px solid;" required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+          </div>
+          <div class="form-group">
+            <label for="phone" class="form-label" style="color: white;"> Mobile Number</label><sup class="star">*</sup>
+            <input type="tel" id="phone" name="phone" class="form-control" maxlength="10" placeholder="Mobile Number"
+              style="background:none;color: white;border: none;border-bottom: 2px solid;" required
+              pattern="[0-9]{10}">
+          </div>
+          <div class="form-group">
+            <label for="phone" class="form-label" style="color: white;">Password</label><sup class="star">*</sup>
+            <input type="Password" id="phone" name="Password" class="form-control" maxlength="10" placeholder="Password"
+              style="background:none;color: white;border: none;border-bottom: 2px solid;" required
+              pattern="/^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,12}$/g">
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="inputState" class="form-label" style="font-size: larger;color: white;"> Gender : </label><sup
+                    class="star">*</sup>
+                <select id="inputState" class="form-select" name="Gender"
+                  style="background: none; color: white;border: none;border-bottom: 2px solid;" required>
+                  <option selected style="font-size: larger;" value="">Choose</option>
+                  <option style="font-size: larger; color: #000000; background: none;" value="Male">Male</option>
+                  <option style="font-size: larger; color: #000000; background: none;" value="Female">Female</option>
+                  <option style="font-size: larger; color: #000000; background: none;" value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+
+
+          </div>
+
+
+          <div class="row">
+            <div class="col-6">
+              <input type="submit" class="btn btn-primary" value="submit" 
+                style="display: block;margin: 0 auto; background: none;">
+
+
+            </div>
+            <div class="col-6">
+              <input type="reset" class="btn btn-danger" value="reset"
+                style="display: block;margin: 0 auto; background: none;">
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+{% endblock body %}

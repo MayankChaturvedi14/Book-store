@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}HOME{% endblock title %}
+{% block style %}
+.containers {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 200%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  align-items: center;
+}
+
+.containers:hover .image {
+  opacity: 0.3;
+}
+
+.containers:hover .middle {
+  opacity: 1;
+}
+
+.button {
+  background-color: #0484fc;
+  color: white;
+  font-size: 20px;
+  padding: 16px 32px;
+}
+{% endblock style %}
+{% block body %}
+<div class="container">
+  <div class="row" style="column-gap:5px;align-items: center; margin:7rem auto; margin-top:200px">
+      <div class="col-md-4" style="margin: 0 auto;">
+          <div class="containers">
+              <img src="https://thumbs.dreamstime.com/b/handwritten-text-caption-showing-register-now-business-concept-writing-registration-written-sticky-note-paper-w-110895922.jpg" alt="Registration" class="image" >
+              <div class="middle">
+                <a href="/Registration"><button class="btn button" style="color: white;" >Registration</button></a>
+              </div>
+            </div>
+      </div><br>
+      <div class="col-md-4" style="margin: 0 auto;">
+          <div class="containers">
+              <img src="https://static3.depositphotos.com/1005574/198/v/600/depositphotos_1982796-stock-illustration-login-icon-button.jpg" alt="Log In" class="image" >
+              <div class="middle">
+                <a href="/LogIn"><button class="btn button" style="color: white;">Log In</button></a>
+              </div>
+            </div>
+      </div>
+  </div>
+</div>
+{% endblock body %}

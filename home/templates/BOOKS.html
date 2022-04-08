@@ -1,0 +1,613 @@
+{% extends 'base.html' %}
+
+{% block title %}BOOKS {% endblock title %}
+{% block style %}
+.bigcontainer {
+    margin-top: 30px;
+}
+
+/* Add padding BETWEEN each column */
+
+/* Create three equal columns that floats next to each other */
+.column {
+    margin-left: 5px;
+    margin-right: auto;
+    display: none;
+    /* Hide all elements by default */
+}
+
+/* Clear floats after rows */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Content */
+.content {
+    background-color: white;
+    padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+    display: block;
+}
+
+/* Style the buttons */
+
+
+a.button4 {
+    display: inline-block;
+    padding: 0.3em 1.2em;
+    margin: 0 0.1em 0.1em 0;
+    border: 3px solid rgb(17, 130, 236);
+    
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    
+    text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    text-align: center;
+    transition: all 0.2s;
+}
+
+
+@media all and (max-width:30em) {
+    a.button4 {
+        display: block;
+        margin: 0.2em auto;
+    }
+}
+#button{
+    margin-top:auto;
+}
+.card-block{
+    display:flex;
+    flex-direction:column
+}
+{% endblock style %}
+{% block nav %}
+<a href="/signout" class="btn btn-outline-danger" >Sign out</a>
+{% endblock nav %}
+{% block body %}
+  <div id="myBtnContainer" style="margin-top: 50px;">
+        <a  class="button4 btn active" onclick="filterSelection('all')">ALL</a>
+        <a  class="button4 btn"  onclick="filterSelection('Crime & THriller')">Crime & THriller</a>
+        <a  class="button4 btn"  onclick="filterSelection('BUSINESS & ECONOMICS')">BUSINESS & ECONOMICS</a>
+        <a  class="button4 btn"  onclick="filterSelection('COMICS & GRAPHIC NOVELS')">COMICS & GRAPHIC NOVELS</a>
+        <a  class="button4 btn"  onclick="filterSelection('COMPUTERS & INTERNET')">COMPUTERS & INTERNET</a>
+        <a  class="button4 btn"  onclick="filterSelection('Engineering')">ENGINEERING</a>
+        <a  class="button4 btn"  onclick="filterSelection('MEDICINE & HEALTH SCIENCES')">MEDICINE & HEALTH SCIENCES</a>
+    </div>
+    <div class="bigcontainer">
+        <div class="container1">
+            <div class="row">
+                <div class="column Crime & THriller col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/712LjOb2VDL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Fingerprint! Publishing The Best of Sherlock Holmes (Set of 2 Books)</h4>
+                              <p class="card-text">Price: ₹ 399</p>
+                              <a href="#" data-name="Sherlock_Holmes" data-price="399" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto" id="button">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column Crime & THriller col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71FXfPs-iyL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Where the Crawdads Sing</h4>
+                              <p class="card-text">Price: ₹ 499</p>
+                              <a href="#" data-name="Where_the_Crawdads_Sing" data-price="499" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column Crime & THriller col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/61wipuAV0uL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">400 Days</h4>
+                              <p class="card-text">Price: ₹ 250</p>
+                              <a href="#" data-name="400_Days" data-price="250" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column Crime & THriller col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/81IVXtChknL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">And Then There Were None: The World’s Favourite Agatha Christie Book: The World’s Favourite Agatha Christie Book</h4>
+                              <p class="card-text">Price: ₹ 299</p>
+                              <a href="#" data-name="And_Then_There_Were_None" data-price="299" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column Crime & THriller col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/51N2P7RaHqL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">The Girl with the Dragon Tattoo - Book 1: 2015-06-07 (Millennium)</h4>
+                              <p class="card-text">Price: ₹ 499</p>
+                              <a href="#" data-name="The_Girl_with_the_Dragon_Tattoo" data-price="499" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column Crime & THriller col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/81StezluKUS._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">The Complete Novels of Sherlock Holmes</h4>
+                              <p class="card-text">Price: ₹ 250</p>
+                              <a href="#" data-name="The_Complete_Novels_of_Sherlock_Holmes" data-price="250" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+
+        <div class="container2">
+            <div class="row">
+                <div class="column BUSINESS & ECONOMICS col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/91kWR8ZrqxL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Goal: A Process of Ongoing Improvement</h4>
+                              <p class="card-text">Price: ₹ 695</p>
+                              <a href="#" data-name="Goal:A_Process_of_Ongoing_Improvement" data-price="695" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column BUSINESS & ECONOMICS col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/81obwCFvhfL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">The Richest Man in Babylon (Deluxe Hardbound Edition)</h4>
+                              <p class="card-text">Price: ₹ 899</p>
+                              <a href="#" data-name="The_Richest_Man_in_Babylon" data-price="899" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column BUSINESS & ECONOMICS col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71g2ednj0JL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">The Psychology of Money</h4>
+                              <p class="card-text">Price: ₹ 399</p>
+                              <a href="#" data-name="The_Psychology_of_Money" data-price="399" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column BUSINESS & ECONOMICS col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71gpkRk86eS._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Think & Grow Rich</h4>
+                              <p class="card-text">Price: ₹ 150</p>
+                              <a href="#" data-name="Think_&_Grow_Rich" data-price="150" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column BUSINESS & ECONOMICS col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/814IUt6WOKL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Deep Work: Rules for Focused Success in a Distracted World</h4>
+                              <p class="card-text">Price: ₹ 399</p>
+                              <a href="#" data-name="Deep_Work" data-price="399" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column BUSINESS & ECONOMICS col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71lEjM64ATS._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">The Compound Effect</h4>
+                              <p class="card-text">Price: ₹ 250</p>
+                              <a href="#" data-name="The_Compound_Effect" data-price="250" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="container3">
+            <div class="row">
+                <div class="column COMICS & GRAPHIC NOVELS col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/61wpnZ+h01L._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">The Master Aspirations Cartoon Book</h4>
+                              <p class="card-text">Price: ₹ 2986</p>
+                              <a href="#" data-name="The_Master_Aspirations_Cartoon_Book" data-price="2986" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column COMICS & GRAPHIC NOVELS col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/81I9cvg4bIS._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Peppa Pig - My Best Little Library (12 Board Books Set)</h4>
+                              <p class="card-text">Price: ₹ 439</p>
+                              <a href="#" data-name="Peppa_Pig" data-price="439" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column COMICS & GRAPHIC NOVELS col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/91GN7Bww3sL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Avengers/Captain America</h4>
+                              <p class="card-text">Price: ₹ 250</p>
+                              <a href="#" data-name="Avemgers" data-price="250" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column COMICS & GRAPHIC NOVELS col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/91BTZdo8jIL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">SpiderMan</h4>
+                              <p class="card-text">Price: ₹ 250</p>
+                              <a href="#" data-name="SpiderMan" data-price="250" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column COMICS & GRAPHIC NOVELS col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/91MY1C-X+NS._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">The DC Book: A Vast and Vibrant Multiverse Simply Explained</h4>
+                              <p class="card-text">Price: ₹ 633</p>
+                              <a href="#" data-name="A_Vast_and_Vibrant_Multiverse_Simply_Explained" data-price="633" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column COMICS & GRAPHIC NOVELS col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71UQTTDQerS._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Chacha Chaudhary Aur Sabu Ke Jutye (चाचा चौधरी और साबू के जूते)</h4>
+                              <p class="card-text">Price: ₹ 100</p>
+                              <a href="#" data-name="Chacha_Chaudhary_Aur_Sabu_Ke_Jutye" data-price="100" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="container4">
+            <div class="row">
+                <div class="column COMPUTERS & INTERNET col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/611k0UFRDiL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Ethical Hacking 2022 - BLACK BOOK</h4>
+                              <p class="card-text">Price: ₹ 499</p>
+                              <a href="#" data-name="Ethical_Hacking_2022" data-price="499" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column COMPUTERS & INTERNET col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/719IdikcxaL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Materials Management with SAP S/4HANA: Business Processes and Configuration</h4>
+                              <p class="card-text">Price: ₹ 11,490</p>
+                              <a href="#" data-name="Materials_Management_with_SAP_S/4HANA" data-price="11490" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column COMPUTERS & INTERNET col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71ai05RP6sL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">The Kubernetes Book: 2022 Edition (Grayscale Indian Edition)</h4>
+                              <p class="card-text">Price: ₹ 1,100</p>
+                              <a href="#" data-name="The_Kubernetes_Book" data-price="1100" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column COMPUTERS & INTERNET col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/91Usb+2tlGL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Cloud Computing: Concepts and Technologies</h4>
+                              <p class="card-text">Price: ₹ 10,499</p>
+                              <a href="#" data-name="Cloud_Computing:Concepts_and_Technologies" data-price="10499" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column COMPUTERS & INTERNET col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/61YL2buzQkL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">PYTHON PROGRAMMING O LEVEL MODULE M3(M3-R5) BILINGUAL BOOK (ENGLISH-HINDI)</h4>
+                              <p class="card-text">Price: ₹ 112</p>
+                              <a href="#" data-name="PYTHON_PROGRAMMING" data-price="112" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column COMPUTERS & INTERNET col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/81ZkxjOMBNL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Cybersecurity Lessons from CoVID-19</h4>
+                              <p class="card-text">Price: ₹ 4,252</p>
+                              <a href="#" data-name="Cybersecurity_Lessons_from_CoVID-19" data-price="4252" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="container5">
+            <div class="row">
+                <div class="column Engineering col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/51YYNIXW+ZL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">BASICS OF CIVIL OBJECTIVE BOOK VOLUME-II</h4>
+                              <p class="card-text">Price: ₹ 250</p>
+                              <a href="#" data-name="BASICS_OF_CIVIL_OBJECTIVE_BOOK_VOLUME-II" data-price="250" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column Engineering col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71doDXpFEnL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Great Truths That Set Us Free</h4>
+                              <p class="card-text">Price: ₹ 250</p>
+                              <a href="#" data-name="Great_Truths_That_Set_Us_Free" data-price="250" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column Engineering col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/91SB6npZqJL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Design Data: Data Book of Engineers by PSG College-Kalaikathir Achchagam - Coimbatore</h4>
+                              <p class="card-text">Price: ₹ 465</p>
+                              <a href="#" data-name="Design_Data" data-price="465" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column Engineering col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71POCQmSXlL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Heat & Mass Transfer Data Book 10th Edition</h4>
+                              <p class="card-text">Price: ₹ 250</p>
+                              <a href="#" data-name="Heat_&_Mass_Transfer_Data_Book_10th_Edition" data-price="250" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column Engineering col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/81Xa56eDEwL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Handbook of Adhesive Technology</h4>
+                              <p class="card-text">Price: ₹ 11,400</p>
+                              <a href="#" data-name="Handbook_of_Adhesive_Technology" data-price="11400" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column Engineering col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/41V4JCJTXBL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Introduction to Microlithography (ACS Professional Reference Book)</h4>
+                              <p class="card-text">Price: ₹ 6,000</p>
+                              <a href="#" data-name="Introduction_to_Microlithography" data-price="6000" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="container6">
+            <div class="row">
+                <div class="column MEDICINE & HEALTH SCIENCES col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/41jEXYLgpzS._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Sabiston Textbook of Surgery International Edition</h4>
+                              <p class="card-text">Price: ₹ 6,400</p>
+                              <a href="#" data-name="Sabiston_Textbook_of_Surgery" data-price="6400" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column MEDICINE & HEALTH SCIENCES col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/41AktIFK7KL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Harper's Textbook of Pediatric Dermatology: 2 Volume Set</h4>
+                              <p class="card-text">Price: ₹ 19,900</p>
+                              <a href="#" data-name="Harper's_Textbook_of_Pediatric_Dermatology" data-price="19900" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column MEDICINE & HEALTH SCIENCES col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/61rlpYmHOuL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Chemical Khichdi: How I Hacked My Mental Health</h4>
+                              <p class="card-text">Price: ₹ 327</p>
+                              <a href="#" data-name="Chemical_Khichdi:How_I_Hacked_My_Mental_Health" data-price="327" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column MEDICINE & HEALTH SCIENCES col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/61ULnPotc-L._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Comprehensive Ophthalmology</h4>
+                              <p class="card-text">Price: ₹ 1325</p>
+                              <a href="#" data-name="Comprehensive_Ophthalmology" data-price="1325" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column MEDICINE & HEALTH SCIENCES col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/51HiqvqWThL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">AIIMS Neurosurgery Case Book - Cervical Spine Trauma</h4>
+                              <p class="card-text">Price: ₹ 1995</p>
+                              <a href="#" data-name="AIIMS_Neurosurgery_Case_Book-_Cervical_Spine_Trauma" data-price="1995" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="column MEDICINE & HEALTH SCIENCES col-md-3">
+                    <div class="content">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/61nBxoXRgwL._AC_UY218_.jpg" alt="Card image cap">
+                            <div class="card-block">
+                              <h4 class="card-title">Tidy's Phisiotherapy</h4>
+                              <p class="card-text">Price: ₹ 1176</p>
+                              <a href="#" data-name="Tidy's_Phisiotherapy" data-price="1176" class="add-to-cart btn btn-lg btn-block btn-outline-primary mt-auto">Add to cart</a>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+{% endblock body %}
+{% block script %}
+<script>
+    filterSelection("all")
+    function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("column");
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+    }
+
+    function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) { element.className += " " + arr2[i]; }
+        }
+    }
+
+    function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+    }
+
+
+    // Add active class to the current button (highlight it)
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+</script>
+{% endblock script %}
